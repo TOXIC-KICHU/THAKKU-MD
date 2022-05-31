@@ -1,6 +1,6 @@
 {
   "name": "THAKKU-MD",
-  "version": "2.0.0",
+  "version": "1.2.3",
   "description": "WhatsApp Using Lib Baileys Multi Device",
   "main": "index.js",
   "type": "commonjs",
@@ -10,18 +10,18 @@
   "keywords": [
     "termux",
     "whatsapp",
-    "2022",
-    "GojoSatoru",
+    "2021",
+    "wabase-md",
     "base",
     "baileys-md",
     "bot",
     "bot-md",
     "multi-device"
   ],
-  "author": "TOXICKICHU",
+  "author": "TOXIC KICHU",
   "license": "MIT",
   "dependencies": {
-    "@adiwajshing/baileys": "^4.0.1",
+    "@adiwajshing/baileys": "^4.1.0",
     "@adiwajshing/keyed-db": "^0.2.4",
     "awesome-phonenumber": "^2.64.0",
     "axios": "^0.24.0",
@@ -54,7 +54,6 @@
     "scrape-primbon": "^1.1.0",
     "util": "^0.12.4",
     "yargs": "^17.2.1",
-    "xfarr-api": "^1.0.2",
     "yt-search": "^2.10.2"
   },
   "directories": {
@@ -64,10 +63,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TOXIC-KICHU/THAKKU-MD.git"
+    "url": "git+https://github.com/TOXIC-DEVIL/THAKKU-MD.git"
   },
   "bugs": {
-    "url": "https://github.com/TOXIC-KICHU/THAKKU-MD/issues"
+    "url": "https://github.com/TOXIC-DEVIL/THAKKU-MD/issues"
   },
-  "homepage": "https://github.com/TOXIC-KICHU/THAKKU-MD#readme"
+  "homepage": "https://github.com/TOXIC-DEVIL/THAKKU-MD#readme"
 }
