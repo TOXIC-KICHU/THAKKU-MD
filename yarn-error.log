@@ -18,7 +18,7 @@ Trace:
 
 npm manifest: 
   {
-    "name": "Base-Md",
+    "name": "THAKKU-MD",
     "version": "1.2.3",
     "description": "WhatsApp Using Lib Baileys Multi Device",
     "main": "index.js",
@@ -37,7 +37,7 @@ npm manifest:
       "bot-md",
       "multi-device"
     ],
-    "author": "Dika Ardnt.",
+    "author": "TOXIC KICHU",
     "license": "MIT",
     "dependencies": {
       "@adiwajshing/baileys": "^4.1.0",
@@ -82,12 +82,12 @@ npm manifest:
     "devDependencies": {},
     "repository": {
       "type": "git",
-      "url": "git+https://github.com/DikaArdnt/Hisoka-Morou.git"
+      "url": "git+https://github.com/TOXIC-KICHU/THAKKU-MD.git"
     },
     "bugs": {
-      "url": "https://github.com/DikaArdnt/Hisoka-Morou/issues"
+      "url": "https://github.com/TOXIC-KICHU/THAKKU-MD/issues"
     },
-    "homepage": "https://github.com/DikaArdnt/Hisoka-Morou#readme"
+    "homepage": "https://github.com/TOXIC-KICHU/THAKKU-MD#readme"
   }
 
 yarn manifest: 
