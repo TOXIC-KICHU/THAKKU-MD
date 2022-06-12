@@ -1,1 +1,1 @@
-https://toxic-kichu.github.io
+toxic-kichu.github.io
