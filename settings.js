@@ -21,7 +21,7 @@ global.premium = ['919961857267','919747867484']
 global.ownernomer = '919961857267','919747867484'
 global.ownername = 'TOXIC KICHU'
 global.botname = 'THAKKU-MD'
-global.footer = '©Tᴏxɪᴄᴋɪᴄʜᴜ'
+global.footer = '©ᴛʜᴀᴋᴋᴜ-ᴍᴅ'
 global.ig = 'https://github.com/TOXIC-KICHU'
 global.region = 'India, South India, Kerala'
 global.sc = 'https://github.com/TOXIC-KICHU/THAKKU-MD'
@@ -56,7 +56,7 @@ global.mess = {
    umpanawal: 5,
    potionawal: 1
 }
-global.thumb = fs.readFileSync('./THAKKUMEDIA/thakku.jpg')
+global.thumb = fs.readFileSync('./media/thakku.jpg')
 global.flaming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=sketch-name&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.fluming = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=fluffy-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
 global.flarun = 'https://www6.flamingtext.com/net-fu/proxy_form.cgi?&imageoutput=true&script=runner-logo&doScale=true&scaleWidth=800&scaleHeight=500&fontsize=100&text='
