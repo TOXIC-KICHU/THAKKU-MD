@@ -38,7 +38,7 @@ premium: "Infinity",
 free: 20
 }
 global.thumb = fs.readFileSync('./media/thakku.jpg')
-global.visoka = { url: 'https://telegra.ph/file/15209657f9d4f59c7ca1e.mp4' }
+global.visoka = { url: 'https://a.uguu.se/suPOANin.mp4' }
 
 let file = require.resolve(__filename)
 fs.watchFile(file, () => {
