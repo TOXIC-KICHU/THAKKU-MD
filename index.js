@@ -95,7 +95,7 @@ async function startThakku() {
         if (!Thakku.public && !mek.key.fromMe && chatUpdate.type === 'notify') return
         if (mek.key.id.startsWith('BAE5') && mek.key.id.length === 16) return
         m = smsg(Thakku, mek, store)
-        require("./handler")(Thakku, m, chatUpdate, store)
+        require("./handler.js")(Thakku, m, chatUpdate, store)
         } catch (err) {
             console.log(err)
         }
