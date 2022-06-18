@@ -1520,7 +1520,7 @@ break
             }
             break
             case 'infochat': {
-                if (!m.quoted) m.reply('Reply Message`)
+                if (!m.quoted) m.reply('Reply Message')
                 let msg = await m.getQuotedObj()
                 if (!m.quoted.isBaileys) return replay(`The Message Was Not Sent By A Bot!`)
                 let teks = ''
