@@ -2755,7 +2755,7 @@ const template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
                         hydratedTemplate: {
                             hydratedContentText: anu,
                             locationMessage: {
-                            jpegThumbnail: fs.readFileSync('./media/alive.mp4')},
+                            jpegThumbnail: fs.readFileSync('./media/thakku.jpg')},
                             hydratedFooterText: `┌─❖
 │「 Hᴇʏ! 」
 └┬❖ 「 ${pushname} 」
