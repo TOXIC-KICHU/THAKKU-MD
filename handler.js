@@ -1551,16 +1551,6 @@ break
                  Thakku.sendTextWithMentions(m.chat, teks, m)
              }
              break
-                case 'listgc': {
-                 let anu = await store.chats.all().filter(v => v.id.endsWith('@g.us')).map(v => v.id)
-                 let teks = `⬣ *Lɪsᴛ Gʀᴏᴜᴘ Cʜᴀᴛ*\n\nTᴏᴛᴀʟ Gʀᴏᴜᴘ : ${anu.length} Gʀᴏᴜᴘ\n\n`
-                 for (let i of anu) {
-                     let metadata = await Thakku.groupMetadata(i)
-                     teks += `⬡ *Nᴀᴍᴇ :* ${metadata.subject}\n⬡ *Oᴡɴᴇʀ :* ${metadata.owner !== undefined ? '@' + metadata.owner.split`@`[0]}\n⬡ *Iᴅ :* ${metadata.id}\n⬡ *Mᴀᴅᴇ :* ${moment(metadata.creation * 1000).tz('Asia/Kolkata').format('DD/MM/YYYY HH:mm:ss')}\n⬡ *Mᴇᴍʙᴇʀ :* ${metadata.participants.length}\n\n────────────────────────\n\n`
-                 }
-                 Thakku.sendTextWithMentions(m.chat, teks, m)
-             }
-             break
              case 'listonline': case 'liston': {
                     let id = args && /\d+\-\d+@g.us/.test(args[0]) ? args[0] : m.chat
                     let online = [...Object.keys(store.presences[id]), botNumber]
