@@ -159,7 +159,7 @@ module.exports = Thakku = async (Thakku, m, chatUpdate, store) => {
     	const isPremium = isCreator || global.premium.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender) || false
 	    
         //member\\
-        let picaks = [flaming,fluming,flarun,flasmurf]
+        let picaks = [fluming,flarun,flasmurf]
 		let picak = picaks[Math.floor(Math.random() * picaks.length)]
 		
           try {
