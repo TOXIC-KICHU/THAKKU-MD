@@ -1,10 +1,6 @@
 //TOXIC KICHU.
   const fs = require('fs')
   let _inventoryOrang = JSON.parse(fs.readFileSync('./storage/user/inventory.json'))
-  let goldAwal = global.rpg.goldawal
-  let emeraldAwal = global.rpg.emeraldawal
-  let umpanAwal = global.rpg.umpanawal
-  let potionAwal = global.rpg.potionawal
   const addInventori = (sender) => {
         const obj = {id: sender, besi: besiAwal, gold: goldAwal, emerald: emeraldAwal, umpan: umpanAwal, potion: potionAwal}
          _inventoryOrang.push(obj)
