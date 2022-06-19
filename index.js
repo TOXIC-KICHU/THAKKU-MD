@@ -1,7 +1,7 @@
 //THAKKU-MD © 2022.
 //BY TOXIC KICHU.
 
-require('./settings/config')
+require('./settings/config.js')
 const { default: ThakkuConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
 const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
 const pino = require('pino')
