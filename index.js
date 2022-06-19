@@ -1,8 +1,9 @@
-//THAKKU-MD © 2022.
-//BY TOXIC KICHU.
+//CODED BY TOXIC KICHU.
+//© 2022 TOXIC KICHU.
+//GIVE CREDITS!!!.
 
 require('./settings/config.js')
-const { default: ThakkuConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
+const { default: KichuIncConnect, useSingleFileAuthState, DisconnectReason, fetchLatestBaileysVersion, generateForwardMessageContent, prepareWAMessageMedia, generateWAMessageFromContent, generateMessageID, downloadContentFromMessage, makeInMemoryStore, jidDecode, proto } = require("@adiwajshing/baileys")
 const { state, saveState } = useSingleFileAuthState(`./${sessionName}.json`)
 const pino = require('pino')
 const { Boom } = require('@hapi/boom')
@@ -11,8 +12,6 @@ const yargs = require('yargs/yargs')
 const chalk = require('chalk')
 const FileType = require('file-type')
 const path = require('path')
-const _ = require('lodash')
-const axios = require('axios')
 const PhoneNumber = require('awesome-phonenumber')
 const { imageToWebp, videoToWebp, writeExifImg, writeExifVid } = require('./lib/exif')
 const { smsg, isUrl, generateMessageTag, getBuffer, getSizeMedia, fetchJson, await, sleep } = require('./lib/myfunc')
@@ -36,16 +35,9 @@ global.db = new Low(
   /https?:\/\//.test(opts['db'] || '') ?
     new cloudDBAdapter(opts['db']) : /mongodb/.test(opts['db']) ?
       new mongoDB(opts['db']) :
-      new JSONFile(`src/database.json`)
+      new JSONFile(`database/database.json`)
 )
-global.DATABASE = global.db // Backwards Compatibility
-global.loadDatabase = async function loadDatabase() {
-  if (global.db.READ) return new Promise((resolve) => setInterval(function () { (!global.db.READ ? (clearInterval(this), resolve(global.db.data == null ? global.loadDatabase() : global.db.data)) : null) }, 1 * 1000))
-  if (global.db.data !== null) return
-  global.db.READ = true
-  await global.db.read()
-  global.db.READ = false
-  global.db.data = {
+global.db.data = {
     users: {},
     chats: {},
     database: {},
@@ -54,10 +46,7 @@ global.loadDatabase = async function loadDatabase() {
     others: {},
     sticker: {},
     ...(global.db.data || {})
-  }
-  global.db.chain = _.chain(global.db.data)
 }
-loadDatabase()
 
 // save database every 30seconds
 if (global.db) setInterval(async () => {
@@ -65,10 +54,10 @@ if (global.db) setInterval(async () => {
   }, 30 * 1000)
 
 async function startThakku() {
-    const Thakku = ThakkuConnect({
+    const Thakku = KichuIncConnect({
         logger: pino({ level: 'silent' }),
         printQRInTerminal: true,
-        browser: ['Thakku Multi Device','Chrome','1.0.0'],
+        browser: ['THAKKU MD\Kichu','Safari','1.0.0'],
         auth: state
     })
 
@@ -79,7 +68,7 @@ async function startThakku() {
     const callerId = json.content[0].attrs['call-creator']
     if (json.content[0].tag == 'offer') {
     let pa7rick = await Thakku.sendContact(callerId, global.owner)
-    Thakku.sendMessage(callerId, { text: `Call =  block!\nSo dont call  bot!\nContact Owner  !`}, { quoted : pa7rick })
+    Thakku.sendMessage(callerId, { text: `Automatic Block System!\nDon't Call Bot!\nPlease Ask Or Contact The Owner To Unblock You!`}, { quoted : pa7rick })
     await sleep(8000)
     await Thakku.updateBlockStatus(callerId, "block")
     }
@@ -112,15 +101,15 @@ async function startThakku() {
        }
        let wm_fatih = { url : ppgc }
        if (pea[0].announce == true) {
-       Thakku.send5ButImg(pea[0].id, `「 Group Settings Change 」\n\nGroup telah ditutup oleh admin, Sekarang hanya admin yang dapat mengirim pesan !`, `Group Settings Change Message`, wm_fatih, [])
+       Thakku.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nThe Group Has Been Closed By Admin, Now Only Admin Can Send Messages !`, `Group Settings Change Message`, wm_fatih, [])
        } else if(pea[0].announce == false) {
-       Thakku.send5ButImg(pea[0].id, `「 Group Settings Change 」\n\nGroup telah dibuka oleh admin, Sekarang peserta dapat mengirim pesan !`, `Group Settings Change Message`, wm_fatih, [])
+       Thakku.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nThe Group Has Been Opened By Admin, Now Participants Can Send Messages !`, `Group Settings Change Message`, wm_fatih, [])
        } else if (pea[0].restrict == true) {
-       Thakku.send5ButImg(pea[0].id, `「 Group Settings Change 」\n\nInfo group telah dibatasi, Sekarang hanya admin yang dapat mengedit info group !`, `Group Settings Change Message`, wm_fatih, [])
+       Thakku.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nGroup Info Has Been Restricted, Now Only Admin Can Edit Group Info !`, `Group Settings Change Message`, wm_fatih, [])
        } else if (pea[0].restrict == false) {
-       Thakku.send5ButImg(pea[0].id, `「 Group Settings Change 」\n\nInfo group telah dibuka, Sekarang peserta dapat mengedit info group !`, `Group Settings Change Message`, wm_fatih, [])
+       Thakku.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nGroup Info Has Been Opened, Now Participants Can Edit Group Info !`, `Group Settings Change Message`, wm_fatih, [])
        } else {
-       Thakku.send5ButImg(pea[0].id, `「 Group Settings Change 」\n\nGroup Subject telah diganti menjadi *${pea[0].subject}*`, `Group Settings Change Message`, wm_fatih, [])
+       Thakku.send5ButImg(pea[0].id, `「 Group Settings Changed 」\n\nGroup Subject Has Been Changed To *${pea[0].subject}*`, `Group Settings Change Message`, wm_fatih, [])
      }
     })
 
@@ -137,17 +126,32 @@ async function startThakku() {
                     ppuser = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
 
-                // Get Profile Picture Group
+                //Get Profile Picture Group\\
                 try {
                     ppgroup = await Thakku.profilePictureUrl(anu.id, 'image')
                 } catch {
                     ppgroup = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
                 }
 
+//welcome\\
+        let nama = await Thakku.getName(num)
+memb = metadata.participants.length
+
+Kon = await getBuffer(`https://hardianto.xyz/api/welcome3?profile=${encodeURIComponent(ppuser)}&name=${encodeURIComponent(nama)}&bg=https://telegra.ph/file/8bbe8a7de5c351dfcb077.jpg&namegb=${encodeURIComponent(metadata.subject)}&member=${encodeURIComponent(memb)}`)
+
+Tol = await getBuffer(`https://hardianto.xyz/api/goodbye3?profile=${encodeURIComponent(ppuser)}&name=${encodeURIComponent(nama)}&bg=https://telegra.ph/file/8bbe8a7de5c351dfcb077.jpg&namegb=${encodeURIComponent(metadata.subject)}&member=${encodeURIComponent(memb)}`)
                 if (anu.action == 'add') {
-                    Thakku.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `Wᴇʟᴄᴏᴍᴇ Tᴏ ${metadata.subject} @${num.split("@")[0]}` })
+                    Thakku.sendMessage(anu.id, { image: Kon, contextInfo: { mentionedJid: [num] }, caption: `
+Hᴇʏ👋 @${num.split("@")[0]},
+Wᴇʟᴄᴏᴍᴇ Tᴏ ${metadata.subject}
+
+Dᴇsᴄʀɪᴘɪᴛᴏɴ: ${metadata.desc}
+
+Wᴇʟᴄᴏᴍᴇ Tᴏ Oᴜʀ Fᴀᴍɪʟʏ😌!!`} )
                 } else if (anu.action == 'remove') {
-                    Thakku.sendMessage(anu.id, { image: { url: ppuser }, contextInfo: { mentionedJid: [num] }, caption: `@${num.split("@")[0]} Leaving To ${metadata.subject}` })
+                    Thakku.sendMessage(anu.id, { image: Tol, contextInfo: { mentionedJid: [num] }, caption: `✑ @${num.split("@")[0]} Left ${metadata.subject}
+
+I'ᴍ Nᴏᴛ Sᴜʀᴇ Iғ Iᴛ Wᴀs A Gᴏᴏᴅʙʏᴇ Cʜᴀʀᴍ, Bᴜᴛ Iᴛ Wᴀs Fᴜɴ Wʜɪʟᴇ Iᴛ Lᴀsᴛᴇᴅ😌✨` })
                 }
             }
         } catch (err) {
@@ -155,7 +159,7 @@ async function startThakku() {
         }
     })
 	
-    // Setting
+    //Setting\\
     Thakku.decodeJid = (jid) => {
         if (!jid) return jid
         if (/:\d+@/gi.test(jid)) {
@@ -194,10 +198,10 @@ async function startThakku() {
 	for (let i of kon) {
 	    list.push({
 	    	displayName: await Thakku.getName(i + '@s.whatsapp.net'),
-	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${await Thakku.getName(i + '@s.whatsapp.net')}\nFN:${await Thakku.getName(i + '@s.whatsapp.net')}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Ponsel\nitem2.EMAIL;type=INTERNET: kawshiksubash06467@gmail.com\nitem2.X-ABLabel:Email\nitem3.URL:https://github.com/TOXIC-KICHU24\nitem3.X-ABLabel:Github\nitem4.ADR:;; India;;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
+	    	vcard: `BEGIN:VCARD\nVERSION:3.0\nN:${ownername}\nitem1.TEL;waid=${i}:${i}\nitem1.X-ABLabel:Cʟɪᴄᴋ To Cʜᴀᴛ\nitem2.EMAIL;type=INTERNET:https://github.com/TOXIC-KICHU\nitem2.X-ABLabel:Gɪᴛʜᴜʙ\nitem3.URL:https://toxic-kichu.github.io\nitem3.X-ABLabel:Wᴇʙ\nitem4.ADR:;;${region};;;;\nitem4.X-ABLabel:Region\nEND:VCARD`
 	    })
 	}
-	Thakku.sendMessage(jid, { contacts: { displayName: `${list.length} Kontak`, contacts: list }, ...opts }, { quoted })
+	Thakku.sendMessage(jid, { contacts: { displayName: `${list.length} Contact`, contacts: list }, ...opts }, { quoted })
     }
     
     Thakku.setStatus = (status) => {
@@ -226,13 +230,13 @@ async function startThakku() {
         if (connection === 'close') {
         let reason = new Boom(lastDisconnect?.error)?.output.statusCode
             if (reason === DisconnectReason.badSession) { console.log(`Bad Session File, Please Delete Session and Scan Again`); Thakku.logout(); }
-            else if (reason === DisconnectReason.connectionClosed) { console.log("Connection closed, reconnecting...."); startThakku(); }
-            else if (reason === DisconnectReason.connectionLost) { console.log("Connection Lost from Server, reconnecting..."); startThakku(); }
-            else if (reason === DisconnectReason.connectionReplaced) { console.log("Connection Replaced, Another New Session Opened, Please Close Current Session First"); Thakku.logout(); }
-            else if (reason === DisconnectReason.loggedOut) { console.log(`Device Logged Out, Please Scan Again And Run.`); Thakku.logout(); }
-            else if (reason === DisconnectReason.restartRequired) { console.log("Restart Required, Restarting..."); startThakku(); }
-            else if (reason === DisconnectReason.timedOut) { console.log("Connection TimedOut, Reconnecting..."); startThakku(); }
-            else Thakku.end(`Unknown DisconnectReason: ${reason}|${connection}`)
+            else if (reason === DisconnectReason.connectionClosed) { console.log("🐦Connection closed, reconnecting...."); startThakku(); }
+            else if (reason === DisconnectReason.connectionLost) { console.log("🐦Connection Lost from Server, reconnecting..."); startThakku(); }
+            else if (reason === DisconnectReason.connectionReplaced) { console.log("🐦Connection Replaced, Another New Session Opened, Please Close Current Session First"); Thakku.logout(); }
+            else if (reason === DisconnectReason.loggedOut) { console.log(`🐦Device Logged Out, Please Scan Again And Run.`); Thakku.logout(); }
+            else if (reason === DisconnectReason.restartRequired) { console.log("🐦Restart Required, Restarting..."); startThakku(); }
+            else if (reason === DisconnectReason.timedOut) { console.log("🐦Connection TimedOut, Reconnecting..."); startThakku(); }
+            else Thakku.end(`🐦Unknown DisconnectReason: ${reason}|${connection}`)
         }
         console.log('Connected...', update)
     })
@@ -240,77 +244,6 @@ async function startThakku() {
     Thakku.ev.on('creds.update', saveState)
 
     // Add Other
-
-      /**
-      *
-      * @param {*} jid
-      * @param {*} url
-      * @param {*} caption
-      * @param {*} quoted
-      * @param {*} options
-      */
-     Thakku.sendFileUrl = async (jid, url, caption, quoted, options = {}) => {
-      let mime = '';
-      let res = await axios.head(url)
-      mime = res.headers['content-type']
-      if (mime.split("/")[1] === "gif") {
-     return Thakku.sendMessage(jid, { video: await getBuffer(url), caption: caption, gifPlayback: true, ...options}, { quoted: quoted, ...options})
-      }
-      let type = mime.split("/")[0]+"Message"
-      if(mime === "application/pdf"){
-     return Thakku.sendMessage(jid, { document: await getBuffer(url), mimetype: 'application/pdf', caption: caption, ...options}, { quoted: quoted, ...options })
-      }
-      if(mime.split("/")[0] === "image"){
-     return Thakku.sendMessage(jid, { image: await getBuffer(url), caption: caption, ...options}, { quoted: quoted, ...options})
-      }
-      if(mime.split("/")[0] === "video"){
-     return Thakku.sendMessage(jid, { video: await getBuffer(url), caption: caption, mimetype: 'video/mp4', ...options}, { quoted: quoted, ...options })
-      }
-      if(mime.split("/")[0] === "audio"){
-     return Thakku.sendMessage(jid, { audio: await getBuffer(url), caption: caption, mimetype: 'audio/mpeg', ...options}, { quoted: quoted, ...options })
-      }
-      }
-
-    /** Send List Messaage
-      *
-      *@param {*} jid
-      *@param {*} text
-      *@param {*} footer
-      *@param {*} title
-      *@param {*} butText
-      *@param [*] sections
-      *@param {*} quoted
-      */
-        Thakku.sendListMsg = (jid, text = '', footer = '', title = '' , butText = '', sects = [], quoted) => {
-        let sections = sects
-        var listMes = {
-        text: text,
-        footer: footer,
-        title: title,
-        buttonText: butText,
-        sections
-        }
-        Thakku.sendMessage(jid, listMes, { quoted: quoted })
-        }
-
-    /** Send Button 5 Message
-     * 
-     * @param {*} jid
-     * @param {*} text
-     * @param {*} footer
-     * @param {*} button
-     * @returns 
-     */
-        Thakku.send5ButMsg = (jid, text = '' , footer = '', but = []) =>{
-        let templateButtons = but
-        var templateMessage = {
-        text: text,
-        footer: footer,
-        templateButtons: templateButtons
-        }
-        Thakku.sendMessage(jid, templateMessage)
-        }
-
     /** Send Button 5 Image
      *
      * @param {*} jid
@@ -323,60 +256,10 @@ async function startThakku() {
      */
     Thakku.send5ButImg = async (jid , text = '' , footer = '', img, but = [], options = {}) =>{
         let message = await prepareWAMessageMedia({ image: img }, { upload: Thakku.waUploadToServer })
-        var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
+        var template = generateWAMessageFromContent(m.chat, proto.Message.fromObject({
         templateMessage: {
         hydratedTemplate: {
         imageMessage: message.imageMessage,
-               "hydratedContentText": text,
-               "hydratedFooterText": footer,
-               "hydratedButtons": but
-            }
-            }
-            }), options)
-            Thakku.relayMessage(jid, template.message, { messageId: template.key.id })
-    }
-
-    /** Send Button 5 Video
-     *
-     * @param {*} jid
-     * @param {*} text
-     * @param {*} footer
-     * @param {*} Video
-     * @param [*] button
-     * @param {*} options
-     * @returns
-     */
-    Thakku.send5ButVid = async (jid , text = '' , footer = '', vid, but = [], options = {}) =>{
-        let message = await prepareWAMessageMedia({ video: vid }, { upload: Thakku.waUploadToServer })
-        var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
-        templateMessage: {
-        hydratedTemplate: {
-        videoMessage: message.videoMessage,
-               "hydratedContentText": text,
-               "hydratedFooterText": footer,
-               "hydratedButtons": but
-            }
-            }
-            }), options)
-            Thakku.relayMessage(jid, template.message, { messageId: template.key.id })
-    }
-
-    /** Send Button 5 Gif
-     *
-     * @param {*} jid
-     * @param {*} text
-     * @param {*} footer
-     * @param {*} Gif
-     * @param [*] button
-     * @param {*} options
-     * @returns
-     */
-    Thakku.send5ButGif = async (jid , text = '' , footer = '', gif, but = [], options = {}) =>{
-        let message = await prepareWAMessageMedia({ video: gif, gifPlayback: true }, { upload: Thakku.waUploadToServer })
-        var template = generateWAMessageFromContent(jid, proto.Message.fromObject({
-        templateMessage: {
-        hydratedTemplate: {
-        videoMessage: message.videoMessage,
                "hydratedContentText": text,
                "hydratedFooterText": footer,
                "hydratedButtons": but
