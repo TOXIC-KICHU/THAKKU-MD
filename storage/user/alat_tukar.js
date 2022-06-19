@@ -1,14 +1,6 @@
-//═══════════════════════════════════════════════════════//
-//If you want to recode, reupload
-//or copy the codes/script,
-//pls give credit
-//no credit? i will take action immediately
-//© 2022 Xeon Bot Inc. Cheems Bot MD
-//Thank you to Lord Buddha, Family and Myself
-//════════════════════════════//
+//TOXIC KICHU.
   const fs = require('fs')
   let _inventoryOrang = JSON.parse(fs.readFileSync('./storage/user/inventory.json'))
-  let besiAwal = global.rpg.besiawal
   let goldAwal = global.rpg.goldawal
   let emeraldAwal = global.rpg.emeraldawal
   let umpanAwal = global.rpg.umpanawal
