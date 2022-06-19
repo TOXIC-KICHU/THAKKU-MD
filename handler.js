@@ -83,7 +83,6 @@ const { smsg, formatp, tanggal, formatDate, getTime, isUrl, sleep, clockString, 
      getSapi,
     getGajah
    } = require('./storage/user/buruan.js')
-   let DarahAwal =  global.rpg.darahawal
    const isDarah = cekDuluJoinAdaApaKagaDiJson(m.sender)   
    const isCekDarah = getDarah(m.sender)
    const isUmpan = getUmpan(m.sender)
