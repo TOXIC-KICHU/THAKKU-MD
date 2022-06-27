@@ -9,3 +9,7 @@
 #### Currently working on beta version
 
 **DEPLOYMENT!**
+
+#### [CLICK HERE](https://heroku.com/deploy?template=https://github.com/TOXIC-KICHU/THAKKU-MD)
+
+**OR**
