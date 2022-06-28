@@ -6,6 +6,17 @@
 <img src=./media/thakku.jpg sizealt="JPG" width="200" height="200"/>
 </p>
 
+
+<br>
+<p align="left">
+  <a href="https://github.com/TOXIC-KICHU"><img title="Support" src="https://img.shields.io/badge/current%20Status-Updates%20Are%20coming%20soon!-orange.svg?style=for-the-badge&logo=xcode" /></a>
+</p>
+<br>
+<p align="left">
+  <a href="https://github.com/TOXIC-KICHU"><img title="Support" src="https://img.shields.io/badge/next%20update-undefined!-green.svg?style=for-the-badge&logo=xcode" /></a>
+</p>
+
+
 #### *Currently working on beta version*
 
 #### *This bot is not completed works. All features is not working. It's fixing. But bot is working fine 🙂!. Wait for the new updates!!*
